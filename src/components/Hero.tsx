@@ -33,7 +33,7 @@ export default function Hero({ onPurchase }: HeroProps) {
 
       <div className="relative z-10 container mx-auto px-4 pt-16 sm:pt-20 lg:pt-24 pb-8 lg:pb-16">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center min-h-[calc(100vh-8rem)]">
-          <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left order-2 lg:order-1">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
             {/* Urgency Badge */}
             <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-400/30 rounded-full px-3 lg:px-4 py-2 text-red-200">
               <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
@@ -148,7 +148,7 @@ export default function Hero({ onPurchase }: HeroProps) {
           </div>
 
           {/* eBook Mockup */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+          <div className="flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 rounded-2xl blur-2xl opacity-30 scale-110 group-hover:opacity-50 transition-opacity duration-500"></div>
