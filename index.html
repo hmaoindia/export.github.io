@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From Zero to Millionaire - Export Business eBook</title>
+    <meta name="description" content="Learn how to start and scale an export business from your home in India. No office. No inventory. Just your phone. Download for ₹99">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFJ7T6QT');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1103570867926247');
+    fbq('track', 'PageView');
+    </script>
+    
+    <!-- GoAffPro Affiliate Tracking - Load First -->
+    <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=xqwvgcoqqo" async></script>
+    <!-- End GoAffPro Affiliate Tracking -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFJ7T6QT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Meta Pixel Code (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1103570867926247&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code (noscript) -->
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Enhanced GoAffPro Tracking Implementation -->
+    <script type="text/javascript">
+      console.log('GoAffPro tracking script initialized');
+      
+      // Global configuration for GoAffPro
+      window.goaffpro_config = {
+        shop: 'xqwvgcoqqo',
+        debug: true // Enable debug mode for better tracking
+      };
+      
+      // Enhanced GoAffPro conversion tracking function
+      window.trackAffiliateConversion = function(orderNumber, orderTotal, currency = 'INR') {
+        console.log('🎯 trackAffiliateConversion called:', { 
+          orderNumber, 
+          orderTotal, 
+          currency,
+          timestamp: new Date().toISOString()
+        });
+        
+        // Ensure orderTotal is a number
+        const numericTotal = typeof orderTotal === 'string' ? parseFloat(orderTotal) : orderTotal;
+        
+        // Set up GoAffPro order object with all required fields
+        window.goaffpro_order = {
+          number: orderNumber,
+          total: numericTotal,
+          currency: currency,
+          customer_email: 'customer@example.com', // Optional but recommended
+          created_at: new Date().toISOString(),
+          line_items: [{
+            title: 'From Zero to Millionaire - Export Business eBook',
+            price: numericTotal,
+            quantity: 1,
+            product_id: 'export-ebook-001'
+          }]
+        };
+        
+        console.log('📦 GoAffPro order object created:', window.goaffpro_order);
+        
+        // Function to attempt tracking
+        const attemptTracking = () => {
+          if (typeof window.goaffproTrackConversion !== "undefined") {
+            console.log('✅ goaffproTrackConversion available, tracking conversion...');
+            try {
+              window.goaffproTrackConversion(window.goaffpro_order);
+              console.log('🎉 GoAffPro conversion tracked successfully!');
+              
+              // Store successful tracking
+              sessionStorage.setItem('goaffpro_tracked', 'true');
+              sessionStorage.setItem('goaffpro_order_number', orderNumber);
+              
+              return true;
+            } catch (error) {
+              console.error('❌ Error tracking GoAffPro conversion:', error);
+              return false;
+            }
+          } else {
+            console.log('⏳ goaffproTrackConversion not yet available');
+            return false;
+          }
+        };
+        
+        // Try immediate tracking
+        if (attemptTracking()) {
+          return;
+        }
+        
+        // Retry mechanism with exponential backoff
+        let retryCount = 0;
+        const maxRetries = 15;
+        const baseDelay = 500;
+        
+        const retryTracking = () => {
+          retryCount++;
+          const delay = baseDelay * Math.pow(1.5, retryCount - 1);
+          
+          console.log(`🔄 Retry attempt ${retryCount}/${maxRetries} (delay: ${delay}ms)`);
+          
+          setTimeout(() => {
+            if (attemptTracking()) {
+              return; // Success, stop retrying
+            }
+            
+            if (retryCount < maxRetries) {
+              retryTracking();
+            } else {
+              console.warn('⚠️ Max retries reached, GoAffPro tracking may have failed');
+              
+              // Fallback: Try alternative tracking methods
+              if (typeof window.goaffpro !== 'undefined' && window.goaffpro.track) {
+                console.log('🔄 Trying alternative GoAffPro tracking method...');
+                try {
+                  window.goaffpro.track('conversion', window.goaffpro_order);
+                  console.log('✅ Alternative GoAffPro tracking successful');
+                } catch (error) {
+                  console.error('❌ Alternative tracking also failed:', error);
+                }
+              }
+            }
+          }, delay);
+        };
+        
+        retryTracking();
+      };
+
+      // Enhanced payment success detection
+      function handlePaymentSuccess(paymentData = {}) {
+        console.log('💳 Payment success detected:', paymentData);
+        
+        // Track Meta Pixel Purchase Event
+        if (typeof fbq !== 'undefined') {
+          console.log('📊 Tracking Meta Pixel Purchase event...');
+          fbq('track', 'Purchase', {
+            value: 99,
+            currency: 'INR',
+            content_name: 'From Zero to Millionaire - Export Business eBook',
+            content_category: 'Digital Product',
+            content_ids: ['export-ebook-001'],
+            content_type: 'product'
+          });
+          console.log('✅ Meta Pixel Purchase event tracked');
+        } else {
+          console.warn('⚠️ Meta Pixel not available for purchase tracking');
+        }
+        
+        // Set payment success flags
+        sessionStorage.setItem('payment_success', 'true');
+        sessionStorage.setItem('payment_timestamp', Date.now().toString());
+        
+        if (paymentData.payment_id) {
+          sessionStorage.setItem('payment_id', paymentData.payment_id);
+        }
+        
+        // Generate order details
+        const orderNumber = paymentData.order_id || '#TXN_' + Date.now();
+        const orderTotal = 99; // ₹99
+        
+        console.log('🎯 Initiating affiliate conversion tracking...');
+        
+        // Track conversion with a small delay to ensure all scripts are loaded
+        setTimeout(() => {
+          window.trackAffiliateConversion(orderNumber, orderTotal, 'INR');
+        }, 1000);
+        
+        // Navigate to thank you page
+        console.log('🚀 Navigating to thank you page...');
+        setTimeout(() => {
+          if (typeof window.navigateToThankYou === 'function') {
+            window.navigateToThankYou();
+          } else {
+            try {
+              window.history.pushState({}, '', '/thankyou');
+              window.location.reload();
+            } catch (error) {
+              window.location.href = window.location.origin + '/thankyou';
+            }
+          }
+        }, 1500);
+      }
+
+      // Listen for Razorpay payment messages
+      window.addEventListener('message', function(event) {
+        console.log('📨 Received message:', { origin: event.origin, data: event.data });
+        
+        // Accept messages from Razorpay domains
+        const razorpayDomains = [
+          'razorpay.com',
+          'checkout.razorpay.com', 
+          'pages.razorpay.com',
+          'api.razorpay.com'
+        ];
+        
+        const isRazorpayOrigin = razorpayDomains.some(domain => 
+          event.origin.includes(domain)
+        );
+        
+        if (!isRazorpayOrigin) {
+          return;
+        }
+        
+        // Check for payment success indicators
+        if (event.data && (
+          event.data.type === 'payment_success' || 
+          event.data.payment_id ||
+          event.data.razorpay_payment_id ||
+          (event.data.status && event.data.status === 'success')
+        )) {
+          handlePaymentSuccess(event.data);
+        }
+      });
+
+      // Check URL parameters on page load
+      window.addEventListener('load', function() {
+        console.log('📄 Page loaded, checking for payment parameters...');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const hash = window.location.hash;
+        
+        // Check for payment success in URL
+        const paymentSuccessIndicators = [
+          urlParams.get('payment_status') === 'success',
+          urlParams.get('razorpay_payment_id'),
+          urlParams.get('payment_id'),
+          hash.includes('payment_success'),
+          hash.includes('payment_id'),
+          hash.includes('razorpay_payment_id')
+        ];
+        
+        if (paymentSuccessIndicators.some(indicator => indicator)) {
+          console.log('✅ Payment success detected via URL parameters');
+          
+          const paymentData = {
+            payment_id: urlParams.get('razorpay_payment_id') || 
+                       urlParams.get('payment_id') || 
+                       'url_param_success',
+            order_id: urlParams.get('order_id')
+          };
+          
+          if (!window.location.pathname.includes('/thankyou') && !hash.includes('thankyou')) {
+            handlePaymentSuccess(paymentData);
+          }
+        }
+      });
+
+      // Listen for custom Razorpay success events
+      window.addEventListener('razorpay_payment_success', function(event) {
+        console.log('🎉 Razorpay payment success event:', event.detail);
+        handlePaymentSuccess(event.detail || {});
+      });
+
+      // Enhanced detection for payment completion
+      window.addEventListener('beforeunload', function() {
+        if (document.referrer.includes('razorpay.com') || 
+            document.referrer.includes('checkout.razorpay.com')) {
+          console.log('🚪 Leaving Razorpay page, flagging potential payment completion...');
+          sessionStorage.setItem('potential_payment_completion', 'true');
+          sessionStorage.setItem('potential_payment_timestamp', Date.now().toString());
+        }
+      });
+
+      // Check for potential payment completion when returning to site
+      window.addEventListener('focus', function() {
+        const potentialCompletion = sessionStorage.getItem('potential_payment_completion');
+        const timestamp = sessionStorage.getItem('potential_payment_timestamp');
+        
+        if (potentialCompletion && timestamp) {
+          const timeDiff = Date.now() - parseInt(timestamp);
+          
+          if (timeDiff < 300000) { // 5 minutes
+            console.log('🔍 Potential payment completion detected, checking with user...');
+            
+            setTimeout(() => {
+              if (!window.location.pathname.includes('/thankyou') && !window.location.hash.includes('thankyou')) {
+                const userConfirmed = confirm(
+                  'Did you complete the payment successfully?\n\n' +
+                  'Click "OK" if payment was successful\n' +
+                  'Click "Cancel" if payment failed or was cancelled'
+                );
+                
+                if (userConfirmed) {
+                  console.log('✅ User confirmed payment success');
+                  handlePaymentSuccess({ 
+                    payment_id: 'user_confirmed_' + Date.now(),
+                    order_id: '#TXN_USER_' + Date.now()
+                  });
+                }
+              }
+              
+              sessionStorage.removeItem('potential_payment_completion');
+              sessionStorage.removeItem('potential_payment_timestamp');
+            }, 2000);
+          }
+        }
+      });
+
+      // GoAffPro script load detection
+      const checkGoAffProLoad = () => {
+        if (typeof window.goaffproTrackConversion !== 'undefined') {
+          console.log('✅ GoAffPro tracking script loaded successfully');
+          return true;
+        }
+        return false;
+      };
+
+      // Monitor GoAffPro script loading
+      let loadCheckCount = 0;
+      const maxLoadChecks = 30; // 30 seconds
+      
+      const monitorGoAffProLoad = setInterval(() => {
+        loadCheckCount++;
+        
+        if (checkGoAffProLoad()) {
+          console.log('🎯 GoAffPro ready for tracking');
+          clearInterval(monitorGoAffProLoad);
+        } else if (loadCheckCount >= maxLoadChecks) {
+          console.warn('⚠️ GoAffPro script load timeout - tracking may be affected');
+          clearInterval(monitorGoAffProLoad);
+        }
+      }, 1000);
+
+      console.log('🚀 Enhanced GoAffPro tracking system initialized');
+    </script>
+    <!-- End Enhanced GoAffPro Tracking -->
+  </body>
+</html>
