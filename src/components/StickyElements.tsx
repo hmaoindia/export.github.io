@@ -27,7 +27,7 @@ export default function StickyElements({ onPurchase }: StickyElementsProps) {
   return (
     <>
       {/* Sticky Buy Button */}
-      <div className={`fixed bottom-16 sm:bottom-20 lg:bottom-24 right-3 sm:right-4 lg:right-6 z-40 transition-all duration-300 ${
+      <div className={`fixed bottom-16 sm:bottom-20 lg:bottom-24 right-3 sm:right-4 lg:right-6 z-[9999] transition-all duration-300 ${
         isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
       }`}>
         <button
@@ -42,7 +42,7 @@ export default function StickyElements({ onPurchase }: StickyElementsProps) {
       </div>
 
       {/* Scroll to Top Button */}
-      <div className={`fixed bottom-16 sm:bottom-20 lg:bottom-24 left-3 sm:left-4 lg:left-6 z-40 transition-all duration-300 ${
+      <div className={`fixed bottom-16 sm:bottom-20 lg:bottom-24 left-3 sm:left-4 lg:left-6 z-[9999] transition-all duration-300 ${
         showScrollTop ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
       }`}>
         <button
@@ -54,7 +54,7 @@ export default function StickyElements({ onPurchase }: StickyElementsProps) {
       </div>
 
       {/* WhatsApp Float Button */}
-      <div className="fixed bottom-28 sm:bottom-36 lg:bottom-40 right-3 sm:right-4 lg:right-6 z-40">
+      <div className="fixed bottom-28 sm:bottom-36 lg:bottom-40 right-3 sm:right-4 lg:right-6 z-[9999]">
         <a
           href="https://wa.me/919752959317"
           target="_blank"
