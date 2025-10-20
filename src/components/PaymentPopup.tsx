@@ -330,6 +330,19 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
               </div>
             </div>
 
+            {/* Alternative Payment Method */}
+            <div className="text-center">
+              <div className="text-sm text-gray-600 mb-2">Having trouble with the payment form above?</div>
+              <button
+                onClick={handleAlternativePayment}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Use Alternative Payment Link
+              </button>
+              <div className="text-xs text-gray-500 mt-1">
+                Opens in new tab - you'll be asked to confirm payment completion
+              </div>
+            </div>
           </div>
 
           {/* Guarantee */}

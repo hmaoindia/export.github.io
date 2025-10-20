@@ -35,19 +35,15 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-      <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-orange-500/5 rounded-full blur-3xl"></div>
+    <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="relative text-center mb-16">
-          <div className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg mb-4">✨ WHAT YOU GET</div>
-          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
-            What Makes This
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-500">Absolutely Different</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            What Makes This <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Different</span>
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto font-semibold">
-            This isn't just another business book. It's your <span className="text-orange-600">complete roadmap</span> to financial freedom, designed specifically for the Indian market.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            This isn't just another business book. It's your complete roadmap to financial freedom, designed specifically for the Indian market.
           </p>
         </div>
 
@@ -55,20 +51,19 @@ export default function Features() {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {mainFeatures.map((feature, index) => (
             <div key={index} className="group relative">
-              <div className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-200 hover:border-blue-400 h-full hover:-translate-y-3 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-cyan-50/50 to-blue-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 h-full">
                 {/* Feature Icon */}
-                <div className="relative flex justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
                 
                 {/* Feature Content */}
-                <div className="relative text-center space-y-4">
-                  <h3 className="text-2xl font-black text-gray-900 leading-tight">{feature.title}</h3>
-                  <p className="text-gray-700 leading-relaxed font-medium">{feature.description}</p>
-
+                <div className="text-center space-y-4">
+                  <h3 className="text-xl font-bold text-gray-800 leading-tight">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  
                   {/* Highlight Badge */}
-                  <div className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg">
+                  <div className="inline-block bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
                     {feature.highlight}
                   </div>
                 </div>
@@ -78,20 +73,18 @@ export default function Features() {
         </div>
 
         {/* Bonus Features Grid */}
-        <div className="relative bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 rounded-3xl p-10 lg:p-14 border-2 border-blue-400 shadow-2xl overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-          <div className="relative text-center mb-10">
-            <div className="inline-block bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-black mb-4 animate-pulse">🎁 BONUS PACKAGE</div>
-            <h3 className="text-3xl lg:text-5xl font-black text-white mb-4 leading-tight">Everything You Get</h3>
-            <p className="text-xl lg:text-2xl text-blue-100 font-semibold">Your complete export business toolkit, worth <span className="text-yellow-300 font-black">₹25,000+</span> for just <span className="text-yellow-300 font-black">₹99</span></p>
+        <div className="bg-gradient-to-r from-purple-50 via-blue-50 to-indigo-50 rounded-2xl p-8 lg:p-12 border border-purple-100">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">🎁 Everything You Get</h3>
+            <p className="text-lg text-gray-600">Your complete export business toolkit, worth ₹25,000+ for just ₹99</p>
           </div>
           
-          <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {bonusFeatures.map((bonus, index) => (
-              <div key={index} className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-2 border-blue-200/50">
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <div className="text-blue-600 bg-blue-100 p-2 rounded-xl">{bonus.icon}</div>
-                  <span className="text-gray-900 font-bold text-sm">{bonus.text}</span>
+              <div key={index} className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="flex items-center gap-3">
+                  <div className="text-purple-600">{bonus.icon}</div>
+                  <span className="text-gray-700 font-medium text-sm">{bonus.text}</span>
                 </div>
               </div>
             ))}
@@ -100,29 +93,25 @@ export default function Features() {
 
         {/* Value Proposition */}
         <div className="mt-16 text-center">
-          <div className="relative bg-gradient-to-r from-emerald-50 via-green-50 to-teal-50 rounded-3xl p-10 lg:p-12 border-2 border-emerald-300 shadow-xl overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-200/30 rounded-full blur-3xl"></div>
-            <div className="relative">
-              <div className="inline-block bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-black mb-6">💰 ROI CALCULATOR</div>
-              <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-6">Return on Investment</h3>
-              <p className="text-xl lg:text-2xl text-gray-800 mb-10 font-semibold max-w-3xl mx-auto">
-                If this eBook helps you get just <span className="text-emerald-600 font-black">ONE</span> export order of ₹50,000, you've made <span className="text-emerald-600 font-black">500x</span> your investment!
-              </p>
-              <div className="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-12">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-red-200">
-                  <div className="text-4xl lg:text-5xl font-black text-red-600 mb-2">₹99</div>
-                  <div className="text-sm font-bold text-gray-600">Your Investment</div>
-                </div>
-                <div className="text-3xl lg:text-4xl text-gray-400 font-black">→</div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-emerald-200">
-                  <div className="text-4xl lg:text-5xl font-black text-emerald-600 mb-2">₹50,000+</div>
-                  <div className="text-sm font-bold text-gray-600">First Order Value</div>
-                </div>
-                <div className="text-3xl lg:text-4xl text-gray-400 font-black">→</div>
-                <div className="bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl p-6 shadow-xl border-2 border-emerald-300">
-                  <div className="text-4xl lg:text-5xl font-black text-white mb-2">500x ROI</div>
-                  <div className="text-sm font-bold text-emerald-100">Return Potential</div>
-                </div>
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">💰 Return on Investment</h3>
+            <p className="text-lg text-gray-600 mb-6">
+              If this eBook helps you get just ONE export order of ₹50,000, you've made 500x your investment!
+            </p>
+            <div className="flex justify-center items-center gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-red-500">₹99</div>
+                <div className="text-sm text-gray-600">Your Investment</div>
+              </div>
+              <div className="text-2xl text-gray-400">→</div>
+              <div>
+                <div className="text-3xl font-bold text-green-500">₹50,000+</div>
+                <div className="text-sm text-gray-600">First Order Value</div>
+              </div>
+              <div className="text-2xl text-gray-400">→</div>
+              <div>
+                <div className="text-3xl font-bold text-purple-500">500x ROI</div>
+                <div className="text-sm text-gray-600">Return Potential</div>
               </div>
             </div>
           </div>
