@@ -90,18 +90,6 @@ export default function Hero({ onPurchase }: HeroProps) {
               <button 
                 onClick={onPurchase}
                 className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 sm:px-8 lg:px-12 py-4 lg:py-6 rounded-xl text-lg sm:text-xl lg:text-2xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 lg:gap-4 relative overflow-hidden w-full sm:w-auto"
-                onClick={() => {
-                  // Track Meta Pixel InitiateCheckout event
-                  if (typeof (window as any).fbq !== 'undefined') {
-                    (window as any).fbq('track', 'InitiateCheckout', {
-                      value: 99,
-                      currency: 'INR',
-                      content_name: 'From Zero to Millionaire - Export Business eBook',
-                      content_category: 'Digital Product'
-                    });
-                  }
-                  onPurchase();
-                }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <CreditCard size={24} className="relative z-10" />

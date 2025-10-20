@@ -84,22 +84,6 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
   const handlePaymentSuccess = (paymentId: string, orderId?: string) => {
     console.log('🎯 Processing payment success:', { paymentId, orderId });
     
-    // Track Meta Pixel Purchase Event
-    if (typeof (window as any).fbq !== 'undefined') {
-      console.log('📊 Tracking Meta Pixel Purchase event from popup...');
-      (window as any).fbq('track', 'Purchase', {
-        value: 99,
-        currency: 'INR',
-        content_name: 'From Zero to Millionaire - Export Business eBook',
-        content_category: 'Digital Product',
-        content_ids: ['export-ebook-001'],
-        content_type: 'product'
-      });
-      console.log('✅ Meta Pixel Purchase event tracked from popup');
-    } else {
-      console.warn('⚠️ Meta Pixel not available for purchase tracking');
-    }
-    
     // Generate secure order details
     const orderNumber = orderId || '#TXN_POPUP_' + Date.now();
     const orderTotal = 99; // ₹99

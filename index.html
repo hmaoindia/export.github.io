@@ -15,24 +15,6 @@
     })(window,document,'script','dataLayer','GTM-MFJ7T6QT');</script>
     <!-- End Google Tag Manager -->
     
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1103570867926247');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1103570867926247&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    
     <!-- GoAffPro Affiliate Tracking - Load First -->
     <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=xqwvgcoqqo" async></script>
     <!-- End GoAffPro Affiliate Tracking -->
@@ -154,22 +136,6 @@
       // Enhanced payment success detection
       function handlePaymentSuccess(paymentData = {}) {
         console.log('💳 Payment success detected:', paymentData);
-        
-        // Track Meta Pixel Purchase Event
-        if (typeof fbq !== 'undefined') {
-          console.log('📊 Tracking Meta Pixel Purchase event...');
-          fbq('track', 'Purchase', {
-            value: 99,
-            currency: 'INR',
-            content_name: 'From Zero to Millionaire - Export Business eBook',
-            content_category: 'Digital Product',
-            content_ids: ['export-ebook-001'],
-            content_type: 'product'
-          });
-          console.log('✅ Meta Pixel Purchase event tracked');
-        } else {
-          console.warn('⚠️ Meta Pixel not available for purchase tracking');
-        }
         
         // Set payment success flags
         sessionStorage.setItem('payment_success', 'true');
