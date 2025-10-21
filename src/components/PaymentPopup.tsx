@@ -129,6 +129,73 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
     }, 1000);
   };
 
+  // Alternative payment method (direct Razorpay link)
+  const handleAlternativePayment = () => {
+    console.log('🔗 Opening alternative payment method...');
+    
+    // Close the popup first
+    onClose();
+    
+    // Open Razorpay payment page
+    const paymentWindow = window.open('https://pages.razorpay.com/exportgrow', '_blank');
+    
+    if (!paymentWindow) {
+      alert('Please allow popups for this site to complete payment');
+      return;
+    }
+    
+    // Monitor the payment window
+    let checkCount = 0;
+    const maxChecks = 600; // 10 minutes
+    
+    const checkPayment = setInterval(() => {
+      checkCount++;
+      
+      try {
+        if (paymentWindow.closed) {
+          console.log('🚪 Payment window closed');
+          clearInterval(checkPayment);
+          
+          // Wait a moment for any potential redirects, then check with user
+          setTimeout(() => {
+            // Check if we're already on thank you page
+            if (window.location.pathname.includes('/thankyou') || window.location.hash.includes('thankyou')) {
+              return;
+            }
+            
+            // Ask user about payment status
+            const userConfirmed = confirm(
+              'Did you complete the payment successfully?\n\n' +
+              'Click "OK" if payment was successful\n' +
+              'Click "Cancel" if payment failed or was cancelled'
+            );
+            
+            if (userConfirmed) {
+              console.log('✅ User confirmed payment success');
+              handlePaymentSuccess('manual_confirmation_' + Date.now(), '#TXN_MANUAL_' + Date.now());
+            } else {
+              console.log('❌ User cancelled or payment failed');
+            }
+          }, 2000);
+        }
+      } catch (error) {
+        // Handle cross-origin errors - this is normal
+        if (checkCount % 60 === 0) { // Log every minute
+          console.log(`⏳ Monitoring payment window... (${Math.floor(checkCount/60)} minutes)`);
+        }
+      }
+      
+      // Stop monitoring after max time
+      if (checkCount >= maxChecks) {
+        console.log('⏰ Payment monitoring timeout reached');
+        clearInterval(checkPayment);
+        
+        if (!paymentWindow.closed) {
+          paymentWindow.close();
+        }
+      }
+    }, 1000);
+  };
 
   if (!isOpen) return null;
 
@@ -230,17 +297,34 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
             </div>
           </div>
 
-          {/* Payment Button */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 lg:p-6">
-              <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Secure Payment - Only ₹99</h3>
-              <div className="bg-white rounded-lg p-4">
-                <form ref={formRef}>
-                  {/* Razorpay script will be dynamically added here */}
-                </form>
-                <div className="text-xs text-gray-600 mt-2">
-                  After successful payment, you'll be automatically redirected to download your resources
+          {/* Payment Options */}
+          <div className="space-y-4">
+            {/* Primary Razorpay Payment Button */}
+            <div className="text-center">
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 lg:p-6">
+                <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Secure Payment - Only ₹99</h3>
+                <div className="bg-white rounded-lg p-4">
+                  <form ref={formRef}>
+                    {/* Razorpay script will be dynamically added here */}
+                  </form>
+                  <div className="text-xs text-gray-600 mt-2">
+                    After successful payment, you'll be automatically redirected to download your resources
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Alternative Payment Method */}
+            <div className="text-center">
+              <div className="text-sm text-gray-600 mb-2">Having trouble with the payment form above?</div>
+              <button
+                onClick={handleAlternativePayment}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Use Alternative Payment Link
+              </button>
+              <div className="text-xs text-gray-500 mt-1">
+                Opens in new tab - you'll be asked to confirm payment completion
               </div>
             </div>
           </div>
