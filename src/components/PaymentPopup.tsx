@@ -128,22 +128,7 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
       }
     }, 1000);
   };
-
-  // Alternative payment method (direct Razorpay link)
-  const handleAlternativePayment = () => {
-    console.log('🔗 Opening alternative payment method...');
-    
-    // Close the popup first
-    onClose();
-    
-    // Open Razorpay payment page
-    const paymentWindow = window.open('https://pages.razorpay.com/exportgrow', '_blank');
-    
-    if (!paymentWindow) {
-      alert('Please allow popups for this site to complete payment');
-      return;
-    }
-    
+       
     // Monitor the payment window
     let checkCount = 0;
     const maxChecks = 600; // 10 minutes
