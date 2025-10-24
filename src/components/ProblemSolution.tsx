@@ -34,15 +34,22 @@ export default function ProblemSolution({ onPurchase }: ProblemSolutionProps) {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-blue-50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            Stop Struggling. Start <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Earning</span>.
+        <div className="relative text-center mb-16">
+          <div className="inline-block mb-4">
+            <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">⚠️ ATTENTION: This Is Costing You Money</span>
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
+            Stop Struggling.
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 animate-gradient-x">Start Earning.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Every day you wait is money lost. While you're thinking, others are already building their export empires from home.
+          <p className="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            Every day you wait is <span className="text-red-600 font-bold">₹5,000+ lost</span>. While you're thinking, others are already building their <span className="text-emerald-600 font-bold">export empires</span> from home.
           </p>
         </div>
 
@@ -50,18 +57,21 @@ export default function ProblemSolution({ onPurchase }: ProblemSolutionProps) {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {problems.map((item, index) => (
             <div key={index} className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 relative overflow-hidden">
+              <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-orange-300 relative overflow-hidden hover:-translate-y-2">
                 {/* Background Pattern */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-50 to-blue-50 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-red-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange-50/0 to-orange-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
                   {/* Problem Section */}
                   <div className="mb-6">
                     <div className="flex items-center gap-4 mb-4">
-                      {item.icon}
-                      <h3 className="text-xl font-bold text-gray-800">{item.title}</h3>
+                      <div className="bg-gradient-to-br from-red-100 to-orange-100 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
                     </div>
-                    <p className="text-gray-600 leading-relaxed mb-4">{item.description}</p>
+                    <p className="text-gray-700 leading-relaxed mb-4 font-medium">{item.description}</p>
                   </div>
 
                   {/* Divider */}
@@ -72,10 +82,12 @@ export default function ProblemSolution({ onPurchase }: ProblemSolutionProps) {
                   </div>
 
                   {/* Solution Section */}
-                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-4 border border-green-200">
+                  <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-5 border-2 border-emerald-200 group-hover:border-emerald-300 transition-colors">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                      <p className="text-gray-700 font-medium leading-relaxed">{item.solution}</p>
+                      <div className="bg-emerald-500 rounded-full p-1 mt-0.5">
+                        <CheckCircle className="text-white flex-shrink-0" size={16} />
+                      </div>
+                      <p className="text-gray-800 font-semibold leading-relaxed">{item.solution}</p>
                     </div>
                   </div>
                 </div>
@@ -85,22 +97,39 @@ export default function ProblemSolution({ onPurchase }: ProblemSolutionProps) {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 lg:p-12 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative text-center bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-3xl p-10 lg:p-16 text-white overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/10 via-transparent to-pink-500/10"></div>
           <div className="relative z-10">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">Ready to Transform Your Life?</h3>
-            <p className="text-lg lg:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Don't let another month pass wondering "what if". Join thousands who took action and changed their destiny.
+            <div className="inline-block bg-yellow-400 text-gray-900 text-sm font-black px-5 py-2 rounded-full mb-6 animate-bounce">🔥 LIMITED TIME OFFER</div>
+            <h3 className="text-3xl lg:text-5xl font-black mb-6 leading-tight">Ready to Transform Your Life?</h3>
+            <p className="text-lg lg:text-2xl text-orange-100 mb-10 max-w-2xl mx-auto font-semibold leading-relaxed">
+              Don't let another month pass wondering "what if". Join <span className="text-yellow-300 font-black">10,000+ Indians</span> who took action and changed their destiny.
             </p>
-            
-            <button 
+
+            <button
               onClick={onPurchase}
-              className="bg-white text-purple-600 px-8 lg:px-12 py-4 lg:py-6 rounded-xl text-xl lg:text-2xl font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-3"
+              className="group bg-white text-orange-600 px-10 lg:px-16 py-5 lg:py-7 rounded-2xl text-xl lg:text-3xl font-black hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-4 border-4 border-orange-200 hover:border-yellow-300 relative overflow-hidden"
             >
-              <CreditCard size={24} />
-              Get Instant Access - Only ₹99
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-100 to-orange-100 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <CreditCard size={32} className="relative z-10" />
+              <span className="relative z-10">Get Instant Access - ₹99</span>
+              <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">SAVE 97%</span>
             </button>
-            <p className="text-blue-200 text-sm mt-4">⚡ Instant access • 💯 30-day guarantee • 🔄 Free lifetime updates</p>
+            <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm lg:text-base">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">⚡</span>
+                <span className="font-semibold">Instant Download</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">💯</span>
+                <span className="font-semibold">30-Day Guarantee</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🔄</span>
+                <span className="font-semibold">Free Lifetime Updates</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
