@@ -84,6 +84,22 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
   const handlePaymentSuccess = (paymentId: string, orderId?: string) => {
     console.log('🎯 Processing payment success:', { paymentId, orderId });
     
+    // Track Meta Pixel Purchase Event
+    if (typeof (window as any).fbq !== 'undefined') {
+      console.log('📊 Tracking Meta Pixel Purchase event from popup...');
+      (window as any).fbq('track', 'Purchase', {
+        value: 99,
+        currency: 'INR',
+        content_name: 'From Zero to Millionaire - Export Business eBook',
+        content_category: 'Digital Product',
+        content_ids: ['export-ebook-001'],
+        content_type: 'product'
+      });
+      console.log('✅ Meta Pixel Purchase event tracked from popup');
+    } else {
+      console.warn('⚠️ Meta Pixel not available for purchase tracking');
+    }
+    
     // Generate secure order details
     const orderNumber = orderId || '#TXN_POPUP_' + Date.now();
     const orderTotal = 99; // ₹99
@@ -124,6 +140,74 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
           // Final fallback - use hash routing
           window.location.hash = '#/thankyou';
           window.location.reload();
+        }
+      }
+    }, 1000);
+  };
+
+  // Alternative payment method (direct Razorpay link)
+  const handleAlternativePayment = () => {
+    console.log('🔗 Opening alternative payment method...');
+    
+    // Close the popup first
+    onClose();
+    
+    // Open Razorpay payment page
+    const paymentWindow = window.open('https://pages.razorpay.com/exportgrow', '_blank');
+    
+    if (!paymentWindow) {
+      alert('Please allow popups for this site to complete payment');
+      return;
+    }
+    
+    // Monitor the payment window
+    let checkCount = 0;
+    const maxChecks = 600; // 10 minutes
+    
+    const checkPayment = setInterval(() => {
+      checkCount++;
+      
+      try {
+        if (paymentWindow.closed) {
+          console.log('🚪 Payment window closed');
+          clearInterval(checkPayment);
+          
+          // Wait a moment for any potential redirects, then check with user
+          setTimeout(() => {
+            // Check if we're already on thank you page
+            if (window.location.pathname.includes('/thankyou') || window.location.hash.includes('thankyou')) {
+              return;
+            }
+            
+            // Ask user about payment status
+            const userConfirmed = confirm(
+              'Did you complete the payment successfully?\n\n' +
+              'Click "OK" if payment was successful\n' +
+              'Click "Cancel" if payment failed or was cancelled'
+            );
+            
+            if (userConfirmed) {
+              console.log('✅ User confirmed payment success');
+              handlePaymentSuccess('manual_confirmation_' + Date.now(), '#TXN_MANUAL_' + Date.now());
+            } else {
+              console.log('❌ User cancelled or payment failed');
+            }
+          }, 2000);
+        }
+      } catch (error) {
+        // Handle cross-origin errors - this is normal
+        if (checkCount % 60 === 0) { // Log every minute
+          console.log(`⏳ Monitoring payment window... (${Math.floor(checkCount/60)} minutes)`);
+        }
+      }
+      
+      // Stop monitoring after max time
+      if (checkCount >= maxChecks) {
+        console.log('⏰ Payment monitoring timeout reached');
+        clearInterval(checkPayment);
+        
+        if (!paymentWindow.closed) {
+          paymentWindow.close();
         }
       }
     }, 1000);
@@ -245,6 +329,7 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
                 </div>
               </div>
             </div>
+
           </div>
 
           {/* Guarantee */}
