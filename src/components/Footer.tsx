@@ -11,10 +11,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">E</span>
-              </div>
-              <span className="font-bold text-xl">ExportPro</span>
+              <img
+                src="/ChatGPT Image Oct 22, 2025, 12_25_54 PM.png"
+                alt="Exportgrow Logo"
+                className="w-10 h-10 object-contain"
+              />
+              <span className="font-bold text-xl">Exportgrow</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Empowering Indian entrepreneurs to build global export businesses from home. 

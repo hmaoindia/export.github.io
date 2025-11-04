@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, CreditCard } from 'lucide-react';
+import { Menu, X, CreditCard, Video } from 'lucide-react';
 
 interface HeaderProps {
   onPurchase: () => void;
@@ -32,40 +32,51 @@ export default function Header({ onPurchase }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex items-center space-x-2">
-            <div className="w-7 sm:w-8 h-7 sm:h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xs sm:text-sm">E</span>
-            </div>
+            <img
+              src="/ChatGPT Image Oct 22, 2025, 12_25_54 PM.png"
+              alt="Exportgrow Logo"
+              className="w-7 sm:w-10 h-7 sm:h-10 object-contain"
+            />
             <span className={`font-bold text-base sm:text-lg ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
-              ExportPro
+              Exportgrow
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <button 
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+            <button
               onClick={() => scrollToSection('features')}
-              className={`hover:text-purple-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+              className={`hover:text-orange-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
             >
               Features
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contents')}
-              className={`hover:text-purple-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+              className={`hover:text-orange-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
             >
               Contents
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('testimonials')}
-              className={`hover:text-purple-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+              className={`hover:text-orange-600 transition-colors text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-white'}`}
             >
               Reviews
             </button>
-            <button 
+            <a
+              href="https://topmate.io/export"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hover:text-orange-600 transition-colors text-sm lg:text-base flex items-center gap-1 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+            >
+              <Video size={14} />
+              1:1 Session
+            </a>
+            <button
               onClick={onPurchase}
               className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 lg:px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center gap-2 text-sm lg:text-base"
             >
               <CreditCard size={14} />
-              Access Complete eBook ₹99
+              Get eBook ₹99
             </button>
           </nav>
 
@@ -82,30 +93,40 @@ export default function Header({ onPurchase }: HeaderProps) {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t shadow-lg">
             <nav className="py-4 space-y-2">
-              <button 
+              <button
                 onClick={() => scrollToSection('features')}
                 className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm"
               >
                 Features
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('contents')}
                 className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm"
               >
                 Contents
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('testimonials')}
                 className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm"
               >
                 Reviews
               </button>
-              <button 
+              <a
+                href="https://topmate.io/export"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm flex items-center gap-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Video size={14} />
+                Book 1:1 Session
+              </a>
+              <button
                 onClick={onPurchase}
                 className="mx-4 mt-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full flex items-center gap-2 justify-center text-sm"
               >
                 <CreditCard size={14} />
-                Access Complete eBook ₹99
+                Get eBook ₹99
               </button>
             </nav>
           </div>

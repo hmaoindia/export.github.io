@@ -138,12 +138,17 @@ export default function Hero({ onPurchase }: HeroProps) {
               </button>
               
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
-                <button className="group flex items-center justify-center gap-2 lg:gap-3 bg-slate-800/50 border-2 border-slate-600/50 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl hover:bg-slate-700/50 hover:border-slate-500 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm hover:scale-105">
+                <a
+                  href="https://topmate.io/export"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center gap-2 lg:gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 border-2 border-blue-400 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 text-sm sm:text-base hover:scale-105"
+                >
                   <div className="bg-white/20 rounded-full p-2 group-hover:bg-white/30 transition-all">
                     <Play size={16} className="fill-white" />
                   </div>
-                  <span className="font-semibold">Watch Preview Video</span>
-                </button>
+                  <span className="font-semibold">Book 1:1 Consultation</span>
+                </a>
               </div>
               
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 lg:gap-4 text-blue-200 text-xs lg:text-sm">
