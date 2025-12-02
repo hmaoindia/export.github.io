@@ -76,7 +76,7 @@ export default function Header({ onPurchase }: HeaderProps) {
               className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 lg:px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center gap-2 text-sm lg:text-base"
             >
               <CreditCard size={14} />
-              Get eBook ₹99
+              Buy Now ₹99
             </button>
           </nav>
 
@@ -126,7 +126,7 @@ export default function Header({ onPurchase }: HeaderProps) {
                 className="mx-4 mt-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full flex items-center gap-2 justify-center text-sm"
               >
                 <CreditCard size={14} />
-                Get eBook ₹99
+                Buy Now ₹99
               </button>
             </nav>
           </div>

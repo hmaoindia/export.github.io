@@ -133,7 +133,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.3),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <CreditCard size={28} className="relative z-10 animate-pulse" />
-                <span className="relative z-10">Get Instant Access - ₹99</span>
+                <span className="relative z-10">Download Now - ₹99</span>
                 <span className="absolute -top-3 -right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-bounce shadow-lg">97% OFF</span>
               </button>
               

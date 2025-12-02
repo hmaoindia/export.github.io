@@ -318,7 +318,7 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
             {/* Primary Razorpay Payment Button */}
             <div className="text-center">
               <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 lg:p-6">
-                <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Secure Payment - Only ₹99</h3>
+                <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Complete Purchase - Only ₹99</h3>
                 <div className="bg-white rounded-lg p-4">
                   <form ref={formRef}>
                     {/* Razorpay script will be dynamically added here */}

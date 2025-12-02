@@ -36,7 +36,7 @@ export default function StickyElements({ onPurchase }: StickyElementsProps) {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <CreditCard size={14} className="relative z-10 flex-shrink-0" />
-          <span className="relative z-10 font-semibold hidden sm:inline">Pay Now ₹99</span>
+          <span className="relative z-10 font-semibold hidden sm:inline">Buy Now ₹99</span>
           <span className="relative z-10 font-semibold sm:hidden">₹99</span>
         </button>
       </div>
@@ -75,11 +75,11 @@ export default function StickyElements({ onPurchase }: StickyElementsProps) {
               <div className="w-2 h-2 bg-white rounded-full animate-pulse flex-shrink-0"></div>
               <span className="font-medium">Limited Time: 70% OFF - Only ₹99 instead of ₹2,999!</span>
             </div>
-            <button 
+            <button
               onClick={onPurchase}
               className="bg-white text-red-600 px-2 lg:px-3 py-1 rounded text-xs font-bold hover:bg-gray-100 transition-colors flex-shrink-0"
             >
-              Pay Now
+              Buy Now
             </button>
           </div>
         </div>

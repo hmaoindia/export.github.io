@@ -113,7 +113,7 @@ export default function ProblemSolution({ onPurchase }: ProblemSolutionProps) {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-100 to-orange-100 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <CreditCard size={32} className="relative z-10" />
-              <span className="relative z-10">Get Instant Access - ₹99</span>
+              <span className="relative z-10">Download Now - ₹99</span>
               <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">SAVE 97%</span>
             </button>
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm lg:text-base">
