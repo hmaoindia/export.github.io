@@ -33,47 +33,47 @@ export default function Hero({ onPurchase }: HeroProps) {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000,transparent)]"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 pt-16 sm:pt-20 lg:pt-24 pb-8 lg:pb-16">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center min-h-[calc(100vh-8rem)]">
-          <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
+      <div className="relative z-10 container mx-auto px-4 pt-12 sm:pt-16 lg:pt-24 pb-6 sm:pb-8 lg:pb-16">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center min-h-auto lg:min-h-[calc(100vh-8rem)]">
+          <div className="space-y-2 sm:space-y-4 lg:space-y-8 text-center lg:text-left">
             {/* Urgency Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/30 to-orange-500/30 border-2 border-orange-400/50 rounded-full px-4 lg:px-5 py-2.5 text-white shadow-lg shadow-orange-500/20 backdrop-blur-sm">
-              <div className="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-orange-400"></div>
-              <span className="text-sm lg:text-base font-bold tracking-wide">🔥 LIMITED TIME: 70% OFF - ENDS SOON!</span>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/30 to-orange-500/30 border-2 border-orange-400/50 rounded-full px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 text-white shadow-lg shadow-orange-500/20 backdrop-blur-sm">
+              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-orange-400"></div>
+              <span className="text-xs sm:text-sm lg:text-base font-bold tracking-wide">🔥 70% OFF - LIMITED TIME!</span>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight">
+            <div className="space-y-2 sm:space-y-3 lg:space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-black leading-[1.2] tracking-tight">
                 <span className="block text-white drop-shadow-2xl">From Zero to</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 animate-gradient-x drop-shadow-2xl">
                   Millionaire
                 </span>
-                <span className="block text-emerald-400 text-2xl sm:text-3xl lg:text-4xl mt-2 font-bold">Through Export Business</span>
+                <span className="block text-emerald-400 text-lg sm:text-xl lg:text-3xl mt-1 sm:mt-2 font-bold">Export Business</span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-lg">
-                The <span className="text-yellow-300 font-bold bg-yellow-300/20 px-2 py-1 rounded">ONLY</span> complete step-by-step blueprint to build a <span className="text-emerald-300 font-bold">₹50 Lakh+</span> export business from your home in India.
+              <p className="text-xs sm:text-base lg:text-xl xl:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-lg">
+                Complete step-by-step blueprint to build <span className="text-emerald-300 font-bold">₹50L+ business</span> from home in India
               </p>
 
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                <div className="bg-emerald-500/20 border border-emerald-400/50 rounded-lg px-4 py-2 flex items-center gap-2 backdrop-blur-sm">
-                  <span className="text-2xl">✓</span>
-                  <span className="text-sm font-semibold">No Office Needed</span>
+              <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
+                <div className="bg-emerald-500/20 border border-emerald-400/50 rounded px-2 sm:px-3 py-1.5 flex items-center gap-1.5 backdrop-blur-sm">
+                  <span>✓</span>
+                  <span className="text-xs sm:text-sm font-semibold">No Office</span>
                 </div>
-                <div className="bg-blue-500/20 border border-blue-400/50 rounded-lg px-4 py-2 flex items-center gap-2 backdrop-blur-sm">
-                  <span className="text-2xl">✓</span>
-                  <span className="text-sm font-semibold">Zero Inventory</span>
+                <div className="bg-blue-500/20 border border-blue-400/50 rounded px-2 sm:px-3 py-1.5 flex items-center gap-1.5 backdrop-blur-sm">
+                  <span>✓</span>
+                  <span className="text-xs sm:text-sm font-semibold">Zero Inventory</span>
                 </div>
-                <div className="bg-orange-500/20 border border-orange-400/50 rounded-lg px-4 py-2 flex items-center gap-2 backdrop-blur-sm">
-                  <span className="text-2xl">✓</span>
-                  <span className="text-sm font-semibold">Just Your Phone</span>
+                <div className="bg-orange-500/20 border border-orange-400/50 rounded px-2 sm:px-3 py-1.5 flex items-center gap-1.5 backdrop-blur-sm">
+                  <span>✓</span>
+                  <span className="text-xs sm:text-sm font-semibold">Phone Only</span>
                 </div>
               </div>
             </div>
             
             {/* Key Benefits */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 max-w-2xl mx-auto lg:max-w-none lg:mx-0">
-              <div className="group relative bg-gradient-to-br from-emerald-500/20 to-green-600/20 backdrop-blur-sm rounded-2xl px-4 lg:px-5 py-4 lg:py-5 border-2 border-emerald-400/50 hover:border-emerald-300 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/30">
+            <div className="hidden sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 max-w-2xl mx-auto lg:max-w-none lg:mx-0">
+              <div className="group relative bg-gradient-to-br from-emerald-500/20 to-green-600/20 backdrop-blur-sm rounded-xl px-3 lg:px-5 py-3 lg:py-5 border-2 border-emerald-400/50 hover:border-emerald-300 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/30">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/0 to-emerald-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative flex flex-col items-center text-center gap-2">
                   <DollarSign className="text-emerald-300 flex-shrink-0" size={24} />
@@ -100,13 +100,13 @@ export default function Hero({ onPurchase }: HeroProps) {
             </div>
 
             {/* Animated Stats */}
-            <div className="relative bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-6 lg:p-8 border-2 border-slate-700/50 max-w-md mx-auto lg:max-w-none lg:mx-0 shadow-2xl shadow-slate-900/50">
+            <div className="relative bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl p-4 sm:p-6 lg:p-8 border-2 border-slate-700/50 max-w-sm sm:max-w-md mx-auto lg:max-w-none lg:mx-0 shadow-2xl shadow-slate-900/50">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full blur-2xl"></div>
               <div className="relative text-center lg:text-left">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 mb-2">
+                <div className="text-2xl sm:text-3xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 mb-1 sm:mb-2">
                   {stats[currentStat].number}
                 </div>
-                <div className="text-slate-300 text-sm sm:text-base font-semibold">
+                <div className="text-slate-300 text-xs sm:text-sm lg:text-base font-semibold">
                   {stats[currentStat].label}
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                   }
                   onPurchase();
                 }}
-                className="group relative bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white px-8 sm:px-10 lg:px-14 py-5 lg:py-7 rounded-2xl text-xl sm:text-2xl lg:text-3xl font-black hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 lg:gap-4 overflow-hidden w-full sm:w-auto border-2 border-orange-400/50"
+                className="group relative bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white px-5 sm:px-10 lg:px-14 py-3.5 sm:py-5 lg:py-7 rounded-xl sm:rounded-2xl text-base sm:text-2xl lg:text-3xl font-black hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 overflow-hidden w-full border-2 border-orange-400/50 min-h-12 sm:min-h-16"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.3),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -142,7 +142,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                   href="https://topmate.io/export"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-2 lg:gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 border-2 border-blue-400 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 text-sm sm:text-base hover:scale-105"
+                  className="group flex items-center justify-center gap-2 lg:gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 border-2 border-blue-400 text-white px-5 sm:px-8 lg:px-8 py-2.5 sm:py-4 lg:py-4 rounded-lg sm:rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 text-xs sm:text-base hover:scale-105 min-h-11 sm:min-h-14"
                 >
                   <div className="bg-white/20 rounded-full p-2 group-hover:bg-white/30 transition-all">
                     <Play size={16} className="fill-white" />
@@ -168,19 +168,10 @@ export default function Hero({ onPurchase }: HeroProps) {
             </div>
 
             {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 text-center lg:text-left">
-              <div className="text-xs text-blue-200">
-                ✓ Instant Download<br />
-                ✓ Lifetime Access
-              </div>
-              <div className="text-xs text-blue-200">
-                ✓ Mobile Friendly<br />
-                ✓ 30-Day Guarantee
-              </div>
-              <div className="text-xs text-blue-200">
-                ✓ Free Updates<br />
-                ✓ Email Support
-              </div>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-2 sm:pt-4 text-xs text-blue-200">
+              <div>✓ Instant Download</div>
+              <div>✓ 30-Day Guarantee</div>
+              <div>✓ Lifetime Access</div>
             </div>
           </div>
 
