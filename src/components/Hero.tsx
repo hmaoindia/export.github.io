@@ -44,11 +44,11 @@ export default function Hero({ onPurchase }: HeroProps) {
 
             <div className="space-y-2 sm:space-y-3 lg:space-y-6">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-black leading-[1.2] tracking-tight">
-                <span className="block text-white drop-shadow-2xl">From Zero to</span>
+                <span className="block text-white drop-shadow-2xl">Master the Art of</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 animate-gradient-x drop-shadow-2xl">
-                  Millionaire
+                  Global Export
                 </span>
-                <span className="block text-emerald-400 text-lg sm:text-xl lg:text-3xl mt-1 sm:mt-2 font-bold">Export Business</span>
+                <span className="block text-emerald-400 text-lg sm:text-xl lg:text-3xl mt-1 sm:mt-2 font-bold">Proven Blueprint for Success</span>
               </h1>
 
               <p className="text-xs sm:text-base lg:text-xl xl:text-2xl text-slate-200 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-lg">
@@ -120,9 +120,9 @@ export default function Hero({ onPurchase }: HeroProps) {
                   // Track Meta Pixel InitiateCheckout event
                   if (typeof (window as any).fbq !== 'undefined') {
                     (window as any).fbq('track', 'InitiateCheckout', {
-                      value: 99,
+                      value: 299,
                       currency: 'INR',
-                      content_name: 'From Zero to Millionaire - Export Business eBook',
+                      content_name: 'Master Global Export - Export Business eBook',
                       content_category: 'Digital Product'
                     });
                   }
@@ -133,8 +133,8 @@ export default function Hero({ onPurchase }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.3),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <CreditCard size={28} className="relative z-10 animate-pulse" />
-                <span className="relative z-10">Download Now - ₹99</span>
-                <span className="absolute -top-3 -right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-bounce shadow-lg">97% OFF</span>
+                <span className="relative z-10">Download Now - ₹299</span>
+                <span className="absolute -top-3 -right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-bounce shadow-lg">LIMITED</span>
               </button>
               
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
@@ -203,11 +203,11 @@ export default function Hero({ onPurchase }: HeroProps) {
                   {/* Price & Value */}
                   <div className="text-center space-y-1 sm:space-y-2">
                     <div className="flex items-center justify-center gap-2 lg:gap-3">
-                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹99</span>
-                      <span className="text-sm sm:text-base lg:text-lg text-gray-500 line-through">₹2,999</span>
+                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹299</span>
+                      <span className="text-sm sm:text-base lg:text-lg text-gray-500 line-through">₹4,999</span>
                     </div>
                     <div className="bg-red-100 text-red-600 px-2 lg:px-3 py-1 rounded-full text-xs lg:text-sm font-medium">
-                      Save 97% Today!
+                      Complete Export Blueprint
                     </div>
                   </div>
                 </div>

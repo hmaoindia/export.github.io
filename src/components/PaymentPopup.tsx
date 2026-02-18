@@ -88,9 +88,9 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
     if (typeof (window as any).fbq !== 'undefined') {
       console.log('📊 Tracking Meta Pixel Purchase event from popup...');
       (window as any).fbq('track', 'Purchase', {
-        value: 99,
+        value: 299,
         currency: 'INR',
-        content_name: 'From Zero to Millionaire - Export Business eBook',
+        content_name: 'Master Global Export - Export Business eBook',
         content_category: 'Digital Product',
         content_ids: ['export-ebook-001'],
         content_type: 'product'
@@ -102,7 +102,8 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
     
     // Generate secure order details
     const orderNumber = orderId || '#TXN_POPUP_' + Date.now();
-    const orderTotal = 99; // ₹99
+    const orderTotal = 299; // ₹299
+    const affiliateIncome = 150; // ₹150 per copy
     const timestamp = Date.now().toString();
     
     // Set secure payment success flags with timestamp
@@ -110,6 +111,7 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
     sessionStorage.setItem('payment_id', paymentId);
     sessionStorage.setItem('payment_timestamp', timestamp);
     sessionStorage.setItem('order_number', orderNumber);
+    sessionStorage.setItem('affiliate_income', affiliateIncome.toString());
     
     console.log('✅ Payment session data stored securely');
     
@@ -246,16 +248,16 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
                 <Star className="text-white" size={20} />
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 truncate">From Zero to Millionaire</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 truncate">Master Global Export</h3>
                 <p className="text-sm lg:text-base text-gray-600">Complete Export Business Guide</p>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2 lg:gap-3">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹99</span>
-                <span className="text-sm sm:text-base lg:text-lg text-gray-500 line-through">₹2,999</span>
-                <span className="bg-red-500 text-white px-2 py-1 rounded text-xs lg:text-sm font-medium">97% OFF</span>
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹299</span>
+                <span className="text-sm sm:text-base lg:text-lg text-gray-500 line-through">₹4,999</span>
+                <span className="bg-red-500 text-white px-2 py-1 rounded text-xs lg:text-sm font-medium">LIMITED OFFER</span>
               </div>
               <div className="text-left sm:text-right text-xs lg:text-sm text-gray-600">
                 <div>⚡ Limited Time Offer</div>
@@ -318,7 +320,7 @@ export default function PaymentPopup({ isOpen, onClose }: PaymentPopupProps) {
             {/* Primary Razorpay Payment Button */}
             <div className="text-center">
               <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 lg:p-6">
-                <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Complete Purchase - Only ₹99</h3>
+                <h3 className="text-white font-bold text-lg lg:text-xl mb-4">Complete Purchase - Only ₹299</h3>
                 <div className="bg-white rounded-lg p-4">
                   <form ref={formRef}>
                     {/* Razorpay script will be dynamically added here */}
