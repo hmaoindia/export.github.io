@@ -163,8 +163,8 @@ export default function ThankYou() {
     
     // Get order details
     const orderNumber = sessionStorage.getItem('order_number') || '#TXN_SECURE_' + Date.now();
-    const orderTotal = 99; // ₹99
-    
+    const orderTotal = 299; // ₹299
+
     console.log('📦 Tracking order:', { orderNumber, orderTotal });
     
     // Call the enhanced global tracking function
@@ -289,7 +289,7 @@ export default function ThankYou() {
             </h1>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Congratulations! Your payment of ₹99 has been processed successfully. 
+              Congratulations! Your payment of ₹299 has been processed successfully.
               You now have lifetime access to the complete Export Business Guide.
             </p>
 

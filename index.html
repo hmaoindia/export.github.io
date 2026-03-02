@@ -70,16 +70,20 @@
       
       // Enhanced GoAffPro conversion tracking function
       window.trackAffiliateConversion = function(orderNumber, orderTotal, currency = 'INR') {
-        console.log('🎯 trackAffiliateConversion called:', { 
-          orderNumber, 
-          orderTotal, 
+        console.log('🎯 trackAffiliateConversion called:', {
+          orderNumber,
+          orderTotal,
           currency,
           timestamp: new Date().toISOString()
         });
-        
+
         // Ensure orderTotal is a number
         const numericTotal = typeof orderTotal === 'string' ? parseFloat(orderTotal) : orderTotal;
-        
+
+        // Calculate affiliate income (₹150 per ₹299 sale)
+        const affiliateCommission = 150;
+        const commissionPercentage = (affiliateCommission / numericTotal * 100).toFixed(2);
+
         // Set up GoAffPro order object with all required fields
         window.goaffpro_order = {
           number: orderNumber,
@@ -94,7 +98,15 @@
             product_id: 'export-ebook-001'
           }]
         };
-        
+
+        // Log affiliate income tracking
+        console.log('💰 Affiliate Income Tracking:', {
+          orderTotal: numericTotal + ' ' + currency,
+          affiliateCommission: affiliateCommission + ' ' + currency,
+          commissionPercentage: commissionPercentage + '%',
+          orderNumber: orderNumber
+        });
+
         console.log('📦 GoAffPro order object created:', window.goaffpro_order);
         
         // Function to attempt tracking
@@ -195,9 +207,20 @@
         const orderNumber = paymentData.order_id || '#TXN_' + Date.now();
         const orderTotal = 299; // ₹299
         const affiliateIncome = 150; // ₹150 per copy
-        
+
+        // Store affiliate income in sessionStorage
+        sessionStorage.setItem('affiliate_income', affiliateIncome.toString());
+        sessionStorage.setItem('order_value', orderTotal.toString());
+        sessionStorage.setItem('commission_percentage', ((affiliateIncome / orderTotal) * 100).toFixed(2));
+
+        console.log('💼 Affiliate Program Details:', {
+          salePrice: '₹' + orderTotal,
+          affiliateCommission: '₹' + affiliateIncome,
+          percentage: ((affiliateIncome / orderTotal) * 100).toFixed(2) + '%'
+        });
+
         console.log('🎯 Initiating affiliate conversion tracking...');
-        
+
         // Track conversion with a small delay to ensure all scripts are loaded
         setTimeout(() => {
           window.trackAffiliateConversion(orderNumber, orderTotal, 'INR');
