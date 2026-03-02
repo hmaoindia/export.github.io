@@ -19,7 +19,7 @@ export default function AffiliateSection() {
           </div>
           
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-            Earn ₹40 Per Sale You Generate
+            Earn ₹150 Per Sale You Generate
           </h2>
           
           <p className="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
