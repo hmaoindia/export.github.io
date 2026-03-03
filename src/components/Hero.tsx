@@ -120,7 +120,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                   // Track Meta Pixel InitiateCheckout event
                   if (typeof (window as any).fbq !== 'undefined') {
                     (window as any).fbq('track', 'InitiateCheckout', {
-                      value: 299,
+                      value: 99,
                       currency: 'INR',
                       content_name: 'Master Global Export - Export Business eBook',
                       content_category: 'Digital Product'
@@ -133,7 +133,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.3),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <CreditCard size={28} className="relative z-10 animate-pulse" />
-                <span className="relative z-10">Download Now - ₹299</span>
+                <span className="relative z-10">Download Now - ₹99</span>
                 <span className="absolute -top-3 -right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-bounce shadow-lg">LIMITED</span>
               </button>
               
@@ -203,7 +203,7 @@ export default function Hero({ onPurchase }: HeroProps) {
                   {/* Price & Value */}
                   <div className="text-center space-y-1 sm:space-y-2">
                     <div className="flex items-center justify-center gap-2 lg:gap-3">
-                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹299</span>
+                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">₹99</span>
                       <span className="text-sm sm:text-base lg:text-lg text-gray-500 line-through">₹4,999</span>
                     </div>
                     <div className="bg-red-100 text-red-600 px-2 lg:px-3 py-1 rounded-full text-xs lg:text-sm font-medium">
